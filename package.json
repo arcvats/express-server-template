@@ -1,0 +1,69 @@
+{
+  "name": "express-server-template",
+  "version": "1.0.0",
+  "description": "Express server template",
+  "main": "index.ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file .env.development.local src/index.ts",
+    "dev:prod": "tsx watch --env-file .env.production.local src/index.ts",
+    "debug": "tsx --inspect=9229 --env-file .env.development.local src/index.ts",
+    "start": "node dist/index.js",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node22 --outdir=dist --sourcemap --minify --metafile=dist/metafile.json",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arcvats/express-server-template.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arcvats/express-server-template/issues"
+  },
+  "homepage": "https://github.com/arcvats/express-server-template#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "morgan": "^1.10.0",
+    "pino": "^9.6.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.13.10",
+    "@vitest/coverage-v8": "^3.0.8",
+    "@vitest/eslint-plugin": "^1.1.37",
+    "@vitest/ui": "^3.0.8",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.25.1",
+    "eslint": "^9.22.0",
+    "eslint-plugin-perfectionist": "^4.10.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0",
+    "pino-pretty": "^13.0.0",
+    "prettier": "^3.5.3",
+    "pretty-quick": "^4.1.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1",
+    "vitest": "^3.0.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

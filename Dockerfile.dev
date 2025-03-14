@@ -1,0 +1,13 @@
+FROM node:22
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN chmod +x ./scripts/dev-startup.sh
+
+CMD ["./scripts/dev-startup.sh"]
